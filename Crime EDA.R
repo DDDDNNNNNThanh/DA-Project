@@ -50,7 +50,7 @@ mvt$Weekday = as.factor(mvt$Weekday)
 
 mvt$Date = DateConvert
 
-
+# On which weekday did the most motor vehicle thefts occur?
 summary(mvt$Weekday)
 summary(mvt$Day)
 summary(mvt$Month)
@@ -59,10 +59,14 @@ monthsdata =table(mvt$Month)
 View(monthsdata)
 arrestmonth = table(mvt$Arrest,mvt$Month)
 View(arrestmonth)
+
+# plots to understand how crime has changed over time in Chicago
 hist(mvt$Date, breaks = 100)
 boxplot(mvt$Date ~ mvt$Arrest)
 table(mvt$Arrest,mvt$Year)
 2152/18517
+
+# top locations where motor vehicle thefts occur
 sortedlocations = sort(table(mvt$LocationDescription))
 View(sortedlocations)
 sortedlocations = sort(table(mvt$LocationDescription), decreasing = TRUE)
